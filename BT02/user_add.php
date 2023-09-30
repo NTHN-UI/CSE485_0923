@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <title>Document</title>
 </head>
-<?php require_once './connection.php'; 
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+<?php 
+    require_once './connection.php'; 
     $sql = "select * from users where id = '$id'";
     $users = mysqli_query($strConnection, $sql);
-    $user = mysqli_fetch_array($users);
-  }
-
-?>
-
+ ?>
 <body>
-    <div class="main">
+
+<div class="main">
         <div class="container-fluid">
             <div class="row">
                 <?php include './layout/sidebar.php' ?>
@@ -36,16 +31,11 @@ if (isset($_GET['id'])) {
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="content_left">
-                                                <img class="avarta" src="<?= $user['image'] ?>"  alt="">
+                                                <img class="avarta" src="./images/manager.jpg"  alt="">
                                                 <div class="form_check">
-                                                    <?php
-                                                        if ($user['sta']) {
-                                                            echo '<input type="checkbox" checked name="" id="">';
-                                                        } else {
-                                                            echo '<input type="checkbox" name="" id="">';
-                                                        }
-                                                    ?>
+                                                    <input type="checkbox" name="status" id="status">
                                                     <span>is active</span>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -63,15 +53,18 @@ if (isset($_GET['id'])) {
                                                 </div>
                                                 <div class="form_group">
                                                     <label for="" class="form_label">User Name<span class="mandatory">*</span></label>
-                                                    <input class="form_input" type="text" name="" id="" placeholder="User Name" value="<?= $user['fullname'] ?>">
+                                                    <input class="form_input" type="text" name="" id="" placeholder="User Name">
+                                                    <span class="form_message"></span>
                                                 </div>
                                                 <div class="form_group">
                                                     <label for="" class="form_label">Email <span class="mandatory">*</span></label>
-                                                    <input class = "form_input" type="text" name="" id="" placeholder="Email" value="<?= $user['email']?>">
+                                                    <input class = "form_input" type="text" name="" id="" placeholder="Email">
+                                                    <span class="form_message"></span>
                                                 </div>
                                                 <div class="form_group">
                                                     <label for="" class="form_label">Phone Number <span class="mandatory">*</span></label>
-                                                    <input class = "form_input" type="text" name="phoneNumber" id="" placeholder="PhoneNumber" value="<?= $user['mobile']?>">
+                                                    <input class = "form_input" type="text" name="phoneNumber" id="" placeholder="PhoneNumber">
+                                                    <span class="form_message"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,43 +77,30 @@ if (isset($_GET['id'])) {
                                             <div class="role">
                                                 <label for="" class="form_label">Role</label>
                                                 <select class="form_input">
-                                                <?php
-                                                $user['job'] == 'Manager' ? $job = 'role2' : $job = 'role3';
-                                                if ($user['job']  == 'Manager') {
-                                                    echo '<option value="role1">Select the Role</option>';
-                                                    echo '<option selected value="role2">Manager</option>';
-                                                    echo '<option value="role3">Customer</option>';
-                                                } else if ($user['job'] == 'Customer') {
-                                                    echo '<option value="role1">Select the Role</option>';
-                                                    echo '<option value="role2">Manager</option>';
-                                                    echo '<option selected value="role3">Customer</option>';
-                                                }
-                                                ?>
+                                                    <option value="default">Select the Role</option>
+                                                    <option value="role1">Manager</option>
+                                                    <option value="role2">Customer</option>
                                                 </select>
+                                                <span class="form_message"></span>
                                             </div>
                                          </div>
                                         <div class="form__group">
                                             <div class="gender">
                                                 <label for="gender" class="form_label">Gender<span class="mandatory">*</span></label>
                                                 <select class="form_input">
-                                                <?php
-                                                    if ($user['gender']) {
-                                                        echo '<option value="gender1">Choose gender</option>';
-                                                        echo '<option selected value="gender2">Male</option>';
-                                                        echo '<option value="gender3">Female</option>';
-                                                    } else {
-                                                        echo '<option value="gender1">Choose gender</option>';
-                                                        echo '<option value="gender2">Male</option>';
-                                                        echo '<option selected value="gender3">Female</option>';
-                                                    }
-                                                    ?>
+                                                    <option value="default">Choose gender</option>
+                                                    <option value="gender1">Male</option>
+                                                    <option value="gender2">Female</option>
+                                                    <option value="gender3">Others</option>
                                                 </select>
+                                                <span class="form_message"></span>
                                             </div>
                                         </div>
                                         <div class="form__group">
                                             <div class="date">
                                                 <label for="" class="form_label">Date of Birth<span class="mandatory">*</span></label>
-                                                <input class="form_input" type="date" name="" id=""value="<?= $user['dateofbirth'] ?>">
+                                                <input class="form_input" type="date" name="" id="">
+                                                <span class="form_message"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -128,14 +108,17 @@ if (isset($_GET['id'])) {
                                         <div class="form__group">
                                             <label for="" class="form_label">Facebook URL</label>
                                             <input class="form__input" type="text" name="" id="">
+                                            <span class="form_message"></span>
                                         </div>
                                         <div class="form__group">
                                             <label for="" class="form_label">Twitter URL</label>
                                             <input class="form__input" type="text" name="" id="">
+                                            <span class="form_message"></span>
                                         </div>
                                         <div class="form__group">
                                             <label for="" class="form_label">Linkedin URL</label>
                                             <input class="form__input" type="text" name="" id="">
+                                            <span class="form_message"></span>
                                         </div>
                                 
                                     </div>
@@ -143,8 +126,23 @@ if (isset($_GET['id'])) {
                                         <div class="about">
                                             <label class="form_label" for="about">About</label>
                                             <textarea class="form__input" name="about" id="" cols="120" rows="4" placeholder="Write About YourSelf..."></textarea>
+                                            <span class="form_message"></span>
                                         </div>
-                                    </div>                                    
+                                    </div> 
+                                    <div class="center_third">
+                                        <div class="form__group">
+                                            <div class="pw">
+                                                <label for="password" class="form_label">Password</label>
+                                                <input class="form_input" type="text" name="password"    id="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form__group">
+                                            <div class="cf_pw">
+                                                <label for="confirmPassword" class="form_label">Confirm Password</label>
+                                                <input class="form_input" type="text" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                    </div>                                   
                                 </div>
                                 <div class="form_btn">
                                     <button class="btn_save">Save</button>
@@ -158,5 +156,6 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
+    
 </body>
 </html>

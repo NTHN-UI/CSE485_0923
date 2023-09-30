@@ -492,20 +492,22 @@ textarea {
     padding-top: 40px;
 }
 
-.btn {}
-
-.btn--save {
+.btn_save {
     background-color: #4cbc9a;
     color: #ffffff;
     width: 75px;
     height: 40px;
     font-weight: bold;
+    border: none;
+    border-radius: 9px;
 }
 
-.btn--cancel {
+.btn_cancel {
     background-color: #ff6a59;
     color: #ffffff;
     width: 85px;
     height: 40px;
     font-weight: bold;
+    border: none;
+    border-radius: 9px;
 }

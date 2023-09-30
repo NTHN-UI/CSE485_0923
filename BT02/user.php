@@ -52,7 +52,7 @@
                                         <span style="color:red" class="h5">Users</span>
                                         <div class="add_users">
                                             <button class="delete"><a class="text-decoration-none" href="#">Delete</a></button>
-                                            <a href="" class="add_r text-decoration-none">
+                                            <a href="user_edit.php?id=<?= $user['id'] ?>" class="add_r text-decoration-none">
                                                 <button class="add">ADD USER</button>
                                                 <button class="h4">+</button>
                                             </a>
@@ -97,14 +97,31 @@
                                                 <td>
                                                     <a href=""><i style="background:#50ba99;font-size:12px" class="fa-solid fa-shield-halved text-white p-1 rounded-2"></i></a>
                                                     <a href="user_edit.php?id=<?= $user['id'] ?>"><i style="background:#ff6a59;font-size:12px" class="fa fa-pencil text-white p-1 rounded-2"></i></a>
-                                                    <a href="">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                         <i style="background:#ff6a59;font-size:12px" class="fa fa-trash text-white p-1 rounded-2">
                                                         </i>
                                                     </a>
                                                 </td>
                                             </tr>
-        
+                                            
                                             <?php } ?>
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        ...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                            </tbody>
                                         </table>
                                     </div>
