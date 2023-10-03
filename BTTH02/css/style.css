@@ -1,0 +1,87 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header_left img {
+    width: 26%;
+    height: 45%;
+    object-fit: cover;
+}
+
+.header_left a {
+    color: #ddd;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.header_left>a:hover {
+    color: black;
+}
+
+.header_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.form_input {
+    border-radius: 4px;
+    border: 0.5px solid #ddd;
+    padding: 5px;
+    width: 220px;
+}
+
+.btn {
+    border-radius: 4px;
+    border: 0.5px solid rgb(133, 248, 133);
+    color: rgb(133, 248, 133);
+    font-weight: 500;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.top span {
+    color: blue;
+    text-transform: uppercase;
+    padding: 15px 0px;
+}
+
+.sing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sing img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sing span {
+    color: blue;
+    text-align: center;
+    text-decoration: none;
+}
